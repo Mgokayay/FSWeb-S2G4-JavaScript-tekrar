@@ -14,8 +14,9 @@ var sayilar = [45,856,12.5,63,0.02,154,2,54,78,61.7,654,26,12.5,63,969,152,32,31
 
 //Örneğin çözümü:
 function KareninAlani(kenaruzunlugu){
-	return kenaruzunlugu*kenaruzunlugu;
+	return Math.pow(kenaruzunlugu, 2);
 }
+console.log(KareninAlani(2));	
 
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -29,8 +30,8 @@ function KareninAlani(kenaruzunlugu){
 			4. Hesaplanan çemberin çevresi döndürülecektir.
 		*/
 
-function CemberinCevresi(/* kodlar buraya */){
-	/* kodlar buraya */
+function CemberinCevresi(yaricap){
+	return 2 * pi * yaricap
 }
 
 
@@ -47,8 +48,8 @@ function CemberinCevresi(/* kodlar buraya */){
 			4. Hesaplanan çemberin alanı döndürülecektir.
 		*/
 		
-function CemberinAlani(/* kodlar buraya */){
-	/* kodlar buraya */
+function CemberinAlani(yaricap,pi){
+	return pi * Math.pow(yaricap, 2);
 }
 
 
@@ -77,38 +78,82 @@ function CemberinAlani(/* kodlar buraya */){
 	
 	//3a çözümü
 
-	/* kodlar buraya */
+	enkucuk = sayilar[0]; 
+	for (let i = 1 ; i<sayilar.length ; i++) {
+        if (enkucuk > sayilar[i]) {
+			enkucuk = sayilar[i];
+		}
+	}
+	enbuyuk = sayilar[0]
+	for (let i = 1 ; i<sayilar.length ; i++) {
+		if(sayilar[i] > enbuyuk) {
+			enbuyuk = sayilar[i];
+		}
+	}
 	
 	
 	
 	// 3b çözümü:
 
-	/* kodlar buraya */
+	ucetambolunenler = [] ;
+	sayilar.forEach((item) =>{
+       if(item %3 == 0){
+		 ucetambolunenler.push(item);
+	   }
+	})
 		
 		
 		
 	//3c çözümü:
 	
-	/* kodlar buraya */
+	ucebolunenlerintoplami = ucetambolunenler.reduce((total,item) => {
+		total += item;
+	    return total;
+	},0);
 
 	
 	
 	//3d çözümü
 	
-	/* kodlar buraya */
+	besyuzdenkucuksayilar = sayilar.filter((item) => {
+		return item < 500 ;
+
+	});
 
 
 
 	//3e çözümü
+   function sirala(arr) {
+	siralisayilar = arr.sort(function(a,b){
+		return a - b ;
 
-	/* kodlar buraya */
+	});
+	return siralisayilar;
+}
+console.log(sirala(besyuzdenkucuksayilar));
+console.log(besyuzdenkucuksayilar);
 	
 	
 	//3f çözümü
 	
-	/* kodlar buraya */
+	tekraredensayilar = [];
+	let count = {};
+	sayilar.forEach((item) => {
+		if (count[item] !== undefined) {
+           count[item] += 1 ;
+		} else {
+			count[item] = 1 ;
+		}
+	});
+	for(let key in count) {
+		if(count[key] >= 2){
+            tekraredensayilar.push(
+				`${key} sayısı ${count[key]} kere tekrar edilmiştir`
+			)
+		}
+	}
 
-
+    console.log(tekraredensayilar);
 
 
 	
